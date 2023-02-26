@@ -28,7 +28,8 @@
                     colors: {
                         lightViolet: 'hsl(211, 61%, 75%)',
                         darkViolet: 'hsl(211, 61%, 35%)',
-                        cardColor: 'rgba(255, 255, 255, 0.60)'
+                        cardColor: 'rgba(255, 255, 255, 0.60)',
+                        red: 'rgba(255,0,0,0)'
                     },
                 },
             },
@@ -36,87 +37,238 @@
     </script>
     <title>Document</title>
     <link rel="stylesheet" href="src/main.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap');
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+    </style>
 </head>
 
 <body>
-    <nav class="relative p-4 bg-lightViolet">
-        <div class="flex gap-x-20 justify-center p-3 m-5 text-xl">
-            <a href="#" class="hover:text-darkViolet">Home</a>
-            <a href="#" class="hover:text-darkViolet">Events</a>
-            <a href="#" class="hover:text-darkViolet">Our Team</a>
-            <a href="#" class="hover:text-darkViolet">Gallery</a>
-        </div>
-    </nav>
+    <nav class="bg-lightViolet ">
+		<div class="h-20 mx-auto px-4 flex justify-start items-center md:justify-center">
+			<div class="flex space-x-7">
+
+
+				<!-- Primary Navbar items -->
+
+				<div class="hidden flex md:flex md:flex-grow flex-row justify-center space-x-12 text-xl lg:space-x-20 lg:text-2xl">
+					<a href="./index.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Home</a>
+					<a href="./Home_and_Events/events.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Events</a>
+					<a href="./Our team/index2.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Our
+						Team</a>
+					<a href="./Gallery/index.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Gallery</a>
+				</div>
+
+			</div>
+
+
+			<!-- Mobile menu button -->
+			<div class="md:hidden flex items-center">
+				<button class="outline-none mobile-menu-button">
+					<svg class=" w-6 h-6 text-gray-500 hover:text-green-500 " x-show="!showMenu" fill="none"
+						stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+						stroke="currentColor">
+						<path d="M4 6h16M4 12h16M4 18h16"></path>
+					</svg>
+				</button>
+			</div>
+		</div>
+		</div>
+		<!-- mobile menu -->
+		<div class="hidden mobile-menu">
+			<ul class="flex flex-col space-y-5">
+				<li class="active"><a href="./index.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Home</a>
+				</li>
+				<li><a href="./Home_and_Events/events.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Events</a>
+				</li>
+				<li><a href="./Our team/index2.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Our
+						Team</a></li>
+				<li><a href="./Gallery/index.html"
+						class="py-4 px-2 text-gray-500 font-semibold hover:text-black transition duration-300">Gallery</a>
+				</li>
+			</ul>
+		</div>
+		<script>
+			const btn = document.querySelector("button.mobile-menu-button");
+			const menu = document.querySelector(".mobile-menu");
+
+			btn.addEventListener("click", () => {
+				menu.classList.toggle("hidden");
+			});
+		</script>
+	</nav>
     <div class="bg-lightViolet bg-waves">
-        <div class="flex text-4xl justify-center p-2 pb-10">
+        <div class="flex text-4xl justify-center py-8 pb-10">
             Website Developed By
         </div>
-        <div class="flex flex-col justify-center p-4">
-            <div class="flex flex-row gap-x-40 justify-center m-8">
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
+        <div class="flex flex-col justify-center p-4 md:flex-col ">
+            <div class="flex flex-col gap-x-40 gap-y-20 justify-center m-8 md:flex-row">
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125  ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
                     </div>
+                    
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-5 text-center transition-all duration-500 group-hover:translate-y-0">
+                    <p
+                        class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        Name<br>
+                        Designation</p></div>
+
                 </div>
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125 ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
                     </div>
-                </div>
-            </div>
-            <div class="flex flex-row gap-x-40 justify-center m-8">
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-row gap-x-40 justify-center m-8">
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
-                    </div>
-                </div>
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
-                    </div>
+                    
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <p
+                            class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Name<br>
+                            Designation</p></div>
+
                 </div>
             </div>
-            <div class="flex flex-row gap-x-40 justify-center m-8">
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
+            <div class="flex flex-col gap-x-40 gap-y-20 justify-center m-8 md:flex-row">
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125 ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
                     </div>
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <p
+                            class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Name<br>
+                            Designation</p></div>
+
                 </div>
-                <div class="flex flex-col bg-cardColor p-2 px-8 rounded-2xl justify-center">
-                    <img src="img/profile.jpg" alt="profile" class="rounded-[35px] w-40 h-40 p-4">
-                    <div class="justify-center text-center p-2 pb-6 px-10">
-                        <p>Name</p>
-                        <p>Designation</p>
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125 ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
                     </div>
+                    
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <p
+                            class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Name<br>
+                            Designation</p></div>
+
+                </div>
+            </div>
+            <div class="flex flex-col gap-x-40 gap-y-20 justify-center m-8 md:flex-row">
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125 ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
+                    </div>
+                    
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <p
+                            class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Name<br>
+                            Designation</p></div>
+
+                </div>
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125 ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
+                    </div>
+                    
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <p
+                            class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Name<br>
+                            Designation</p></div>
+
+                </div>
+            </div>
+            <div class="flex flex-col gap-x-40 gap-y-20 justify-center m-8 md:flex-row">
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125 ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
+                    </div>
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <p
+                            class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Name<br>
+                            Designation</p></div>
+
+                </div>
+                <div
+                    class="flex flex-col bg-cardColor md:p-12 px-8 rounded-2xl justify-center group relative cursor-pointer items-center   overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+                    <img src="img/profile.jpg" alt="profile"
+                        class="rounded-[35px] p-2 w-40 h-40 object-cover transition-transform duration-500  group-hover:scale-125 ">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-b group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70 group-hover:scale-125 ">
+                    </div>
+                    
+                    
+                    <div class="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
+                        <p
+                            class=" mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                            Name<br>
+                            Designation</p></div>
+
                 </div>
             </div>
         </div>
-    </div </body>
+    </div> 
+</body>
+<footer class="p-4 bg-lightViolet  shadow md:flex md:items-center md:justify-between md:p-6 dark:bg-gray-800">
+    <span class="text-sm text-black-500 sm:text-left dark:text-black-400 font-Sanchez font-medium"> CONTACT US<br>
+        Lenin Vasan (President) : +91 9876543210<br>
 
+        Shubreeta Chatterjee (Vice President) : +91 9876543210<br>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-square-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-medium"></i>
+        <i class="fa-brands fa-youtube"></i>
+
+
+    </span>
+    <ul class="flex flex-wrap text-sm text-black-500 sm:text-right dark:text-black-400 font-Sanchez font-medium">
+        VIT Chennai<br>
+        Vandalur - Kelambakkam Road Chennai <br>
+        600 127 044 3993 1555
+</footer>
+<div class="p-4 bg-darkViolet dark:bg-gray-800" >
+    <p class="text-sm text-black-500 sm:text-center dark:text-black-400 font-Sanchez font-medium ">
+        <a href="#">Developed by Biosphere Tech</a>
+    </p>
+</div>
 </html>
